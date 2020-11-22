@@ -23,14 +23,14 @@ const generateMarkdown = data => {
   ## Usage
   ${data.usage}
 
-  ## License
+  ## License(s)
   ${data.license}
 
-  ## Contributing
+  ## Contributors
   ${data.contributing}
 
   ## Tests
-  ${data.tests}
+  ${data.test}
 
   ## Questions
   ${data.questions}
