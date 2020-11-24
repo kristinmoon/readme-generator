@@ -3,7 +3,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // array of questions for user
-const questions = data => {
+const questions = (data) => {
   return inquirer.prompt([
     {
       type: 'input',
@@ -46,10 +46,10 @@ const questions = data => {
       message: 'Please provide instructions for usage:'
     },
     {
-      type: 'list',
+      type: 'checkbox',
       name: 'license',
       message: 'What license should be attributed to your project? (Check all that apply)',
-      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense', 'Other'],
     },
     {
       type: 'input',
@@ -62,15 +62,24 @@ const questions = data => {
       message: 'Please provide instructions for testing your application:'
     },
   ]);
-};
+}
+
+
 
 // function to write README file
 function writeToFile(fileName, data) {
+  fs.writeFile(file, generateMarkdown(data), function (err) {
+    if (err) throw err;
+    console.log("README creation complete");
+  })
 }
 
 // function to initialize program
-function init() {
-
+const init = () => {
+  inquirer.prompt(questions)
+    .then(ans => {
+      writeToFile(fileName, ans);
+    })
 }
 
 // function call to initialize program
