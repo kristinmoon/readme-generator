@@ -36,7 +36,6 @@ const generateMarkdown = (data) => {
   ${data.description}
 
   ## Table Of Contents
-  
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
@@ -61,7 +60,7 @@ const generateMarkdown = (data) => {
   ${data.test}
 
   ## Questions
-  Please contact me at [${data.email}](mailto:${data.email}) with any questions. You can also find me on GitHub at [${data.githubName}](${link})
+  Please contact me at [${data.email}](mailto:${data.email}) with any questions. You can also find me on GitHub at [${data.githubName}](${data.link}).
 `;
 }
 
