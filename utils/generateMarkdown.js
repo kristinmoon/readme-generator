@@ -1,3 +1,5 @@
+const { link } = require("fs");
+
 // function to generate markdown for README
 const generateMarkdown = (data) => {
   // license badges
@@ -28,18 +30,19 @@ const generateMarkdown = (data) => {
 
   return `
   # ${data.title}
+  ${badge}
 
   ## Description
   ${data.description}
 
   ## Table Of Contents
   
-* [Installation](#installation)
-* [Usage](#usage)
-* [License(s)](#license)
-* [Contributing](#Contributing)
-* [Tests](#Tests)
-* [Questions](#Questions)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contribution Guidelines](#Contributing)
+  * [Tests](#Tests)
+  * [Questions](#Questions)
 
 
   ## Installation
@@ -48,18 +51,17 @@ const generateMarkdown = (data) => {
   ## Usage
   ${data.usage}
 
-  ## License(s)
-  ${badge}
+  ## License
+  This application is covered under: ${data.license}
 
-  ## Contributors
+  ## Contribution Guidelines
   ${data.contributing}
 
   ## Tests
   ${data.test}
 
   ## Questions
-  ${data.questions}
-
+  Please contact me at [${data.email}](mailto:${data.email}) with any questions. You can also find me on GitHub at [${data.githubName}](${link})
 `;
 }
 

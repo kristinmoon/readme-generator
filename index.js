@@ -14,8 +14,8 @@ const questions = [
     type: 'input',
     name: 'title',
     message: 'What is your project title? (Required)',
-    validate: nameInput => {
-      if (nameInput) {
+    validate: titleInput => {
+      if (titleInput) {
         return true;
       } else {
         console.log('Please enter a title');
@@ -51,20 +51,49 @@ const questions = [
     message: 'Please provide instructions for usage:'
   },
   {
-    type: 'checkbox',
+    type: 'list',
     name: 'license',
-    message: 'What license should be attributed to your project? (Check all that apply)',
+    message: 'What license should be attributed to your project?',
     choices: ['GNU AGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense', 'WTFPL'],
   },
   {
     type: 'input',
     name: 'contributing',
-    message: 'Please provide information about any contributors:'
+    message: 'Please provide information on how to contribute to this project/application:'
   },
   {
     type: 'input',
     name: 'test',
-    message: 'Please provide instructions for testing your application:'
+    message: 'Please provide instructions for testing your project/application:'
+  },
+  {
+    type: 'input',
+    name: 'githubName',
+    message: 'What is your GitHub Username?'
+  },
+  {
+    type: 'input',
+    name: 'link',
+    message: 'Please provide a link to your GitHub profile (Required):',
+    validate: linkInput => {
+      if (linkInput) {
+        return true;
+      } else {
+        console.log('Please enter your link!');
+      }
+    }
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'Please provide your email address (Required):',
+    validate: emailInput => {
+      if (emailInput) {
+        return true;
+      } else {
+        console.log('Please enter your email address!');
+      }
+    }
   },
 ];
 
@@ -82,7 +111,7 @@ function writeToFile(file, data) {
 const init = () => {
   inquirer.prompt(questions)
     .then(ans => {
-      fileName = '${ans.title}_README.md'
+      fileName = 'README.md'
       return ans;
     })
     .then(ans => {
