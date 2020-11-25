@@ -39,9 +39,9 @@ const generateMarkdown = (data) => {
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
-  * [Contribution Guidelines](#Contributing)
-  * [Tests](#Tests)
-  * [Questions](#Questions)
+  * [Contribution](#contribution)
+  * [Tests](#tests)
+  * [Questions](#questions)
 
 
   ## Installation
@@ -53,7 +53,7 @@ const generateMarkdown = (data) => {
   ## License
   This application is covered under: ${data.license}
 
-  ## Contribution Guidelines
+  ## Contribution
   ${data.contributing}
 
   ## Tests

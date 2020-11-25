@@ -4,11 +4,6 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 
 let fileName;
 
-// array of questions for user
-// const questions = (data) => {
-//   return inquirer.prompt([
-//     {
-
 const questions = [
   {
     type: 'input',
